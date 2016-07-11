@@ -8,20 +8,21 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+const fit4meMail = 'fit4metest@gmail.com'
+const fit4mePW = process.env.password
 var app = express();
 
 
 // express mailer setup
 mailer.extend(app, {
-  from: 'hugh.oneill.4@gmail.com',
+  from: fit4meMail,
   host: 'smtp.gmail.com',
   secureConnection: true,
   port: 465,
   transportMethod: 'SMTP',
   auth: {
-    user:'hugh.oneill.4@gmail.com',
-    pass: 'ptho54KP'
+    user:fit4meMail,
+    pass: fit4mePW
   }
 })
 
@@ -42,29 +43,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-app.post('/processform', function(req,res){
-  var apple = 'orange'
-  console.log('I hear you')
-  res.send('I heard '+ req.body.name)
-})
-
-// send email
-app.get('/processform', function(req,res,next){
+app.get('/sendmail', function(req,res){
   app.mailer.send('email', {
-    to: req.body.emailer,
-    subject: 'Test Mailer from'+ req.body.name,
+    to: fit4meMail,
+    subject: 'Test Mailer',
 
-  }, function (err, message){
+  }, function (err){
     if (err) {
       console.log(err)
       res.send('error sending email')
       return;
     }
-    res.header('Content-Type', 'text/plain')
-    res.send(message)
     res.send('Email Sent')
   })
 })
+
+app.post('/processform', function(req,res){
+  var apple = 'orange'
+  console.log('I hear you')
+  // res.send('I heard '+ req.body.name)
+  app.mailer.send('email', {
+    to: req.body.emailer,
+    subject: 'Test Mailer from'+ req.body.name,
+
+  }, function (err){
+    if (err) {
+      console.log(err)
+      res.send('error sending email')
+      return;
+    }
+    res.send('Email Sent')
+  })
+})
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
