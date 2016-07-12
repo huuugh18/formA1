@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+select {
+  height: 90%;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
