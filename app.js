@@ -59,9 +59,7 @@ app.get('/sendmail', function(req,res){
 })
 
 app.post('/processform', function(req,res){
-  var apple = 'orange'
   console.log('I hear you')
-  // res.send('I heard '+ req.body.name)
   app.mailer.send('email', {
     to: req.body.emailer,
     subject: 'Test Mailer from'+ req.body.name,
@@ -76,6 +74,20 @@ app.post('/processform', function(req,res){
   })
 })
 
+app.post('/processFormA1', function(req,res){
+  console.log('ProcessFormA1 has Run')
+  app.mailer.send('formMailer', {
+    to: fit4meMail,
+    subject: 'testformA1',
+  }, function(err){
+    if (err) {
+      console.log(err)
+      res.send('error sending email')
+      return
+    }
+    res.send('Email Sent')
+  })
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
