@@ -1,0 +1,16 @@
+.weekHeader {
+    text-align: center;
+    font-weight: bold;
+
+}
+.jumbotron {
+    padding-bottom: 3rem; 
+}
+.weekCol {
+    padding-top: 15px;
+    padding-left:15px;
+    padding-right:15px;
+    border: 2px solid lightgrey;
+    border-radius: 4px;
+    background-color: #eceeef;
+}
