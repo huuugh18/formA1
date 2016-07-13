@@ -58,12 +58,12 @@ app.get('/sendmail', function(req,res){
   })
 })
 
+
 app.post('/processform', function(req,res){
   console.log('I hear you')
   app.mailer.send('email', {
     to: req.body.emailer,
     subject: 'Test Mailer from'+ req.body.name,
-
   }, function (err){
     if (err) {
       console.log(err)
@@ -73,12 +73,97 @@ app.post('/processform', function(req,res){
     res.send('Email Sent')
   })
 })
+// Email Render Tests
+app.get('/test1', function(req, res){
+  res.render('formMailer', {
+    to: fit4meMail,
+    subject: 'testEmail',
+    userEmail: 'something@somewhere.com',
+    userName: 'Susan Somebody',
+    userDate: "2016-07-18",
+    //-----------------Day 1-------------------
+    w1d1UBC: checkOn('on') , w1d1LBC: checkOn('on'),
+    w2d1UBC: checkOn('on'), w2d1LBC: checkOn('on'),
+    w3d1UBC: checkOn('on'), w3d1LBC: checkOn('on'),
+    w4d1UBC: checkOn('on'), w4d1LBC: checkOn('on'),
+    //-----------------Day 2-------------------
+    w1d2AL: 5 + 'min', w1d2AE: 'skating',
+    w2d2AL: 10 + 'min', w2d2AE: 'outdoor running',
+    w3d2AL: 15 + 'min', w3d2AE: 'treadmill running',
+    w4d2AL: 20 + 'min', w4d2AE: 'outdoor biking',
+    //-----------------Day 3-------------------
+    w1d3Ab: checkOn('on'),
+    w2d3Ab: checkOn('on'), 
+    w3d3Ab: checkOn('on'), 
+    w4d3Ab: checkOn('on'),  
+    //-----------------Day 4 Rest--------------
+    //-----------------Day 5-------------------
+    w1d5UBC: checkOn('on'), w1d5LBC: checkOn(),
+    w2d5UBC: checkOn('on'), w2d5LBC: checkOn(undefined),
+    w3d5UBC: checkOn('on'), w3d5LBC: checkOn('on'),
+    w4d5UBC: checkOn('on'), w4d5LBC: checkOn('on'),
+    //-----------------Day 6-------------------
+    w1d6AL: 30 + 'min', w1d6AE: 'hockey',
+    w2d6AL: 40 + 'min', w2d6AE: 'hockey',
+    w3d6AL: 60 + 'min', w3d6AE: 'hockey',
+    w4d6AL: 75 + 'min', w4d6AE: 'hockey',
+    //-----------------Day 7 Rest--------------
 
+  //}
+  // ,function(err,message){
+  //   if (err) {
+  //     console.log(err)
+  //     res.send('error sending email')
+  //     return
+  //   }
+  //   res.header('Content-Type', 'text/plain')
+  //   res.send(message)
+   })
+})
+  
+
+
+
+//========================================
+// Send Email Protocol form Form PorgramA1
+//========================================
 app.post('/processFormA1', function(req,res){
   console.log('ProcessFormA1 has Run')
+  console.log(req.body)
   app.mailer.send('formMailer', {
     to: fit4meMail,
     subject: 'testformA1',
+    userEmail: req.body.emailInput,
+    userName: req.body.nameInput,
+    userDate: req.body.startDateInput,
+    //-----------------Day 1-------------------
+    w1d1UBC: checkOn(req.body.w1d1UBCheck), w1d1LBC: checkOn(req.body.w1d1LBCheck),
+    w2d1UBC: checkOn(req.body.w2d1UBCheck), w2d1LBC: checkOn(req.body.w2d1LBCheck),
+    w3d1UBC: checkOn(req.body.w3d1UBCheck), w3d1LBC: checkOn(req.body.w3d1LBCheck),
+    w4d1UBC: checkOn(req.body.w4d1UBCheck), w4d1LBC: checkOn(req.body.w4d1LBCheck),
+    //-----------------Day 2-------------------
+    w1d2AL: req.body.w1d2AL, w1d2AE: req.body.w1d2AE,
+    w2d2AL: req.body.w2d2AL, w2d2AE: req.body.w2d2AE,
+    w3d2AL: req.body.w3d2AL, w3d2AE: req.body.w3d2AE,
+    w4d2AL: req.body.w4d2AL, w4d2AE: req.body.w4d2AE,
+    //-----------------Day 3-------------------
+    w1d3Ab: checkOn(req.body.w1d3CCheck),
+    w2d3Ab: checkOn(req.body.w2d3CCheck), 
+    w3d3Ab: checkOn(req.body.w3d3CCheck), 
+    w4d3Ab: checkOn(req.body.w4d3CCheck),  
+    //-----------------Day 4 Rest--------------
+    //-----------------Day 5-------------------
+    w1d6UBC: checkOn(req.body.w1d6UBCheck), w1d6LBC: checkOn(req.body.w1d6LBCheck),
+    w2d6UBC: checkOn(req.body.w2d6UBCheck), w2d6LBC: checkOn(req.body.w2d6LBCheck),
+    w3d6UBC: checkOn(req.body.w3d6UBCheck), w3d6LBC: checkOn(req.body.w3d6LBCheck),
+    w4d6UBC: checkOn(req.body.w4d6UBCheck), w4d6LBC: checkOn(req.body.w4d6LBCheck),
+    //-----------------Day 6-------------------
+    w1d6AL: req.body.w1d6AL, w1d6AE: req.body.w1d6AE,
+    w2d6AL: req.body.w2d6AL, w2d6AE: req.body.w2d6AE,
+    w3d6AL: req.body.w3d6AL, w3d6AE: req.body.w3d6AE,
+    w4d6AL: req.body.w4d6AL, w4d6AE: req.body.w4d6AE,
+    //-----------------Day 7 Rest--------------
+
   }, function(err){
     if (err) {
       console.log(err)
@@ -122,3 +207,10 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+function checkOn(checkValue){
+  if (checkValue==='on'){
+    return 'Completed'
+  }
+  return 'Incomplete'
+}

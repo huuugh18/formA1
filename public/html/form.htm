@@ -28,19 +28,19 @@
                         <div class='form-group'>
                             <label for='emailInput' class='col-md-3 col-md-offset-3 text-right'>Email Address</label>
                             <div class='col-md-3'>
-                                <input type='email' class='form-control' id='emailInput' placeholder="Email">
+                                <input type='email' class='form-control' name='emailInput' id ='emailInput' placeholder="Email">
                             </div>
                         </div>
                         <div class='form-group'>
                             <label for='nameInput' class='col-md-3 col-md-offset-3 text-right'>Full Name</label>
                             <div class='col-md-3'>
-                                <input type='text' class='form-control' id='nameInput' placeholder='Name'>
+                                <input type='text' class='form-control' name='nameInput' id='nameInput' placeholder='Name'>
                             </div>
                         </div>
                         <div class='form-group'>
                             <label for='startDateInput' class='col-md-3 col-md-offset-3 text-right'>Start Date</label>
                             <div class='col-md-3'>
-                                <input type='date' class='form-control' id='startDateInput' placeholder='Date'>
+                                <input type='date' class='form-control' name='startDateInput' id='startDateInput' placeholder='Date'>
                             </div>
                         </div>
                     </div>
@@ -49,6 +49,7 @@
             <br>
             <div class='row'>
                 <div class='col-md-8 col-md-offset-2'>
+<!--===============================WEEK 1=======================================-->
                     <div id='week1' class='form-group col-md-6  weekCol'>
                         <h3 class='weekHeader'>Week 1</h3><br>
                         <div class='day1 row'>
@@ -57,9 +58,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w1d1UBCheck'>Upper Body Flexibility: </label>
-                                <input type='checkbox' id='w1d1UBCheck'><br>
+                                <input type='checkbox' name='w1d1UBCheck' id='w1d1UBCheck'><br>
                                 <label for='w1d1LBCheck'>Lower Body Strength: </label>
-                                <input type='checkbox' id='w1d1LBCheck'>
+                                <input type='checkbox' name='w1d1LBCheck' id='w1d1LBCheck'>
                             </div>
                         </div>
                         <div class='day2 row form-group form-inline'>
@@ -69,7 +70,7 @@
                             <div class='col-md-9'>
                                 <label for='w1d1DD'>Aerobic Exercise:</label>
                                 <br>
-                                <select class='form-control'>
+                                <select name='w1d2AL' class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -82,23 +83,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w1d2AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>                
                                 </select>
                             </div>
                         </div>
@@ -108,7 +109,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w1d3CCheck'>Core Abdominal Strength:</label>
-                                <input type='checkbox' id='w1d3CCheck'>
+                                <input type='checkbox' name='w1d3CCheck' id='w1d3CCheck'>
                             </div>
                         </div>
                         <div class='day4 row'>
@@ -125,9 +126,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w1d5UBCheck'>Upper Body Strength:</label>
-                                <input type='checkbox' id='w1d5UBCheck'><br>
+                                <input type='checkbox' name='w1d5UBCheck' id='w1d5UBCheck'><br>
                                 <label for='w1d5LBCheck'>Lower Body Flexibility:</label>
-                                <input type='checkbox' id='w1d5LBCheck'>
+                                <input type='checkbox' name='w1d5LBCheck' id='w1d5LBCheck'>
                             </div>
                         </div>
                         <div class='day6 row form-group form-inline'>
@@ -136,7 +137,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w1d6DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <select name='w1d6AL' class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -149,23 +150,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w1d6AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>               
                                 </select>
                             </div>
                         </div>
@@ -178,6 +179,7 @@
                             </div>
                         </div>
                     </div>
+<!--===============================WEEK 2=======================================-->
                     <div id='week2' class='form-group col-md-6 col-md-offset-0 weekCol'>
                         <h3 class='weekHeader'>Week 2</h3><br>
                         <div class='day1 row'>
@@ -186,9 +188,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w2d1UBCheck'>Upper Body Flexibility:</label>
-                                <input type='checkbox' id='w2d1UBCheck'><br>
+                                <input type='checkbox' name='w2d1UBCheck' id='w2d1UBCheck'><br>
                                 <label for='w2d1LBCheck'>Lower Body Strength:</label>
-                                <input type='checkbox' id='w2d1LBCheck'>
+                                <input type='checkbox' name='w2d1LBCheck' id='w2d1LBCheck'>
                             </div>
                         </div>
                         <div class='day2 row form-group form-inline'>
@@ -197,7 +199,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w2d1DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <select name='w2d2AL' class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -210,23 +212,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w2d2AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>               
                                 </select>
                             </div>
                         </div>
@@ -236,7 +238,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w2d3CCheck'>Core Abdominal Strength:</label>
-                                <input type='checkbox' id='w2d3CCheck'>
+                                <input type='checkbox' name='w2d3CCheck' id='w2d3CCheck'>
                             </div>
                         </div>
                         <div class='day4 row'>
@@ -253,9 +255,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w2d5UBCheck'>Upper Body Strength:</label>
-                                <input type='checkbox' id='w2d5UBCheck'><br>
+                                <input type='checkbox' name='w2d5UBCheck' id='w2d5UBCheck'><br>
                                 <label for='w2d5LBCheck'>Lower Body Flexibility:</label>
-                                <input type='checkbox' id='w2d5LBCheck'>
+                                <input type='checkbox' name='w2d5LBCheck' id='w2d5LBCheck'>
                             </div>
                         </div>
                         <div class='day6 row form-group form-inline'>
@@ -264,7 +266,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w2d6DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <select name='w2d6AL'class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -277,23 +279,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w2d6AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>               
                                 </select>
                             </div>
                         </div>
@@ -306,6 +308,7 @@
                             </div>
                         </div>
                     </div>
+    <!--===============================WEEK 3=======================================-->
                     <div id='week3' class='form-group col-md-6  weekCol'>
                         <h3 class='weekHeader'>Week 3</h3><br>
                         <div class='day1 row'>
@@ -314,9 +317,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w3d1UBCheck'>Upper Body Flexibility:</label>
-                                <input type='checkbox' id='w3d1UBCheck'><br>
+                                <input type='checkbox' name='w3d1UBCheck'  id='w3d1UBCheck'><br>
                                 <label for='w3d1LBCheck'>Lower Body Strength:</label>
-                                <input type='checkbox' id='w3d1LBCheck'>
+                                <input type='checkbox' name='w3d1LBCheck'  id='w3d1LBCheck'>
                             </div>
                         </div>
                         <div class='day2 row form-group form-inline'>
@@ -324,8 +327,8 @@
                                 <h4>Day 2</h4>
                             </div>
                             <div class='col-md-9'>
-                                <label for='w3d1DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <label for='w3d2DD'>Aerobic Exercise:</label><br>
+                                <select name='w3d2AL'class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -338,23 +341,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w3d2AE'class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>                    
                                 </select>
                             </div>
                         </div>
@@ -364,7 +367,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w3d3CCheck'>Core Abdominal Strength:</label>
-                                <input type='checkbox' id='w3d3CCheck'>
+                                <input type='checkbox' name='w3d3CCheck' id='w3d3CCheck'>
                             </div>
                         </div>
                         <div class='day4 row'>
@@ -381,9 +384,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w3d5UBCheck'>Upper Body Strength:</label>
-                                <input type='checkbox' id='w3d5UBCheck'><br>
+                                <input type='checkbox' name='w3d5UBCheck' id='w3d5UBCheck'><br>
                                 <label for='w3d5LBCheck'>Lower Body Flexibility:</label>
-                                <input type='checkbox' id='w3d5LBCheck'>
+                                <input type='checkbox' name='w3d5LBCheck' id='w3d5LBCheck'>
                             </div>
                         </div>
                         <div class='day6 row form-group form-inline'>
@@ -392,7 +395,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w3d6DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <select name='w3d6AL'class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -405,23 +408,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w3d6AE'class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>                    
                                 </select>
                             </div>
                         </div>
@@ -434,6 +437,7 @@
                             </div>
                         </div>
                     </div>
+<!--=============================WEEK 4=======================================-->
                     <div id='week4' class='form-group col-md-6 col-md-offset-0 weekCol'>
                         <h3 class='weekHeader'>Week 4</h3><br>
                         <div class='day1 row'>
@@ -442,9 +446,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w4d1UBCheck'>Upper Body Flexibility:</label>
-                                <input type='checkbox' id='w4d1UBCheck'><br>
+                                <input type='checkbox' name='w4d1UBCheck' id='w4d1UBCheck'><br>
                                 <label for='w4d1LBCheck'>Lower Body Strength:</label>
-                                <input type='checkbox' id='w4d1LBCheck'>
+                                <input type='checkbox' name='w4d1LBCheck'  id='w4d1LBCheck'>
                             </div>
                         </div>
                         <div class='day2 row form-group form-inline'>
@@ -452,8 +456,8 @@
                                 <h4>Day 2</h4>
                             </div>
                             <div class='col-md-9'>
-                                <label for='w4d1DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <label for='w4d2DD'>Aerobic Exercise:</label><br>
+                                <select name='w4d2AL' class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -466,23 +470,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w4d2AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>                    
                                 </select>
                             </div>
                         </div>
@@ -492,7 +496,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w4d3CCheck'>Core Abdominal Strength:</label>
-                                <input type='checkbox' id='w4d3CCheck'>
+                                <input type='checkbox' name='d3CCheck' id='w4d3CCheck'>
                             </div>
                         </div>
                         <div class='day4 row'>
@@ -509,9 +513,9 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w4d5UBCheck'>Upper Body Strength:</label>
-                                <input type='checkbox' id='w4d5UBCheck'><br>
+                                <input type='checkbox' name='w4d5UBCheck' id='w4d5UBCheck'><br>
                                 <label for='w4d5LBCheck'>Lower Body Flexibility:</label>
-                                <input type='checkbox' id='w4d5LBCheck'>
+                                <input type='checkbox' name='w4d5LBCheck'  id='w4d5LBCheck'>
                             </div>
                         </div>
                         <div class='day6 row form-group form-inline'>
@@ -520,7 +524,7 @@
                             </div>
                             <div class='col-md-9'>
                                 <label for='w4d6DD'>Aerobic Exercise:</label><br>
-                                <select class='form-control'>
+                                <select name='w4d6AL' class='form-control'>
                                     <option disabled selected>Level</option>
                                     <option value='5'>1 - 5 min</option>
                                     <option value='10'>2 - 10 min</option>
@@ -533,23 +537,23 @@
                                     <option value='75'>9 - 75 min</option>
                                     <option value='90'>10 - 90 min</option>
                                 </select>
-                                <select class='form-control'>
+                                <select name='w4d6AE' class='form-control'>
                                     <option disabled selected>Activity</option>
-                                    <option value='1'>Treadmill Running</option>
-                                    <option value='2'>Outdoor Running</option>
-                                    <option value=''>Treadmill Walking</option>
-                                    <option value=''>Outdoor Walking</option>
-                                    <option value=''>Outdoor Biking</option>
-                                    <option value=''>Stationairy Biking</option>
-                                    <option value=''>Stair Climber</option>
-                                    <option value=''>Elliptical Trainer</option>
-                                    <option value=''>Swimming</option>
-                                    <option value=''>Water Jogging</option>
-                                    <option value=''>Aerobic Class</option>
-                                    <option value=''>Water Aerobics</option>
-                                    <option value=''>Skating</option>
-                                    <option value=''>Yoga</option>
-                                    <option value=''>Other</option>                    
+                                    <option value='Treadmill Running'>Treadmill Running</option>
+                                    <option value='Outdoor Running'>Outdoor Running</option>
+                                    <option value='Treadmill Walking'>Treadmill Walking</option>
+                                    <option value='Outdoor Walking'>Outdoor Walking</option>
+                                    <option value='Outdoor Biking'>Outdoor Biking</option>
+                                    <option value='Stationairy Biking'>Stationairy Biking</option>
+                                    <option value='Stair Climber'>Stair Climber</option>
+                                    <option value='Elliptical Trainer'>Elliptical Trainer</option>
+                                    <option value='Swimming'>Swimming</option>
+                                    <option value='Water Jogging'>Water Jogging</option>
+                                    <option value='Aerobic Class'>Aerobic Class</option>
+                                    <option value='Water Aerobics'>Water Aerobics</option>
+                                    <option value='Skating'>Skating</option>
+                                    <option value='Yoga'>Yoga</option>
+                                    <option value='Other'>Other</option>                    
                                 </select>
                             </div>
                         </div>

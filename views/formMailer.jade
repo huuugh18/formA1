@@ -3,16 +3,60 @@ html
     meta(http-equiv = 'Content-Type', content = 'text/html; charset=UTF-8')
     title= subject
     body
-      h1.h1 This came from form A1
-      p
-        strong Lorem ipsum dolor: 
-        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        br
-        |Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      h2.h2 Lorem ipsum
-      p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      p Lorem ipsum:
-      ol
-        li Lorem ipsum dolor
-        li Lorem ipsum dolor
-        li Lorem ipsum dolor
+      h1.h1 #{userName}'s Program A1 Report
+      h3.h3 Email: #{userEmail}
+      h3.h3 Start Date: #{userDate}
+
+      table(style='border: 1px solid black')
+        tr
+          th 
+          th Week 1
+          th Week 2
+          th Week 3
+          th Week 4
+        tr
+          th(style='text-align:left') Day 1: Upper Body Flexibility
+          td(style='padding: 10px') #{w1d1UBC}  
+          td(style='padding: 10px') #{w2d1UBC}  
+          td(style='padding: 10px') #{w3d1UBC}  
+          td(style='padding: 10px') #{w4d1UBC}  
+        tr
+          th(style='text-align:left') Day 1: Lower Body Strength
+          td(style='padding: 10px') #{w1d1LBC}
+          td(style='padding: 10px') #{w2d1LBC}
+          td(style='padding: 10px') #{w3d1LBC}
+          td(style='padding: 10px') #{w4d1LBC}
+        tr
+          th(style='text-align:left') Day 2: Aerobic 
+          td(style='padding: 10px') #{w1d2AL} #{w1d2AE}
+          td(style='padding: 10px') #{w2d2AL} #{w2d2AE}
+          td(style='padding: 10px') #{w3d2AL} #{w3d2AE}
+          td(style='padding: 10px') #{w4d2AL} #{w4d2AE}
+        tr
+          th(style='text-align:left') Day 3: Core
+          td(style='padding: 10px') #{w1d3Ab}
+          td(style='padding: 10px') #{w1d3Ab}
+          td(style='padding: 10px') #{w1d3Ab}
+          td(style='padding: 10px') #{w1d3Ab}
+        tr
+          th(style='text-align:left') Day 5: Upper Body Strength
+          td(style='padding: 10px') #{w1d5UBC}
+          td(style='padding: 10px') #{w2d5UBC}
+          td(style='padding: 10px') #{w3d5UBC}
+          td(style='padding: 10px') #{w4d5UBC}
+        tr
+          th(style='text-align:left') Day 5: Lower Body Flexibility
+          td(style='padding: 10px') #{w1d5LBC}
+          td(style='padding: 10px') #{w2d5LBC}
+          td(style='padding: 10px') #{w3d5LBC}
+          td(style='padding: 10px') #{w4d5LBC}
+        tr
+          th(style='text-align:left') Day 6: Aerobic
+          td(style='padding: 10px') #{w1d6AL} #{w1d6AE}
+          td(style='padding: 10px') #{w2d6AL} #{w2d6AE}
+          td(style='padding: 10px') #{w3d6AL} #{w3d6AE}
+          td(style='padding: 10px') #{w4d6AL} #{w4d6AE}
+
+
+
+      
