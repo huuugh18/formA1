@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
+// original test functions
 app.get('/sendmail', function(req,res){
   app.mailer.send('email', {
     to: fit4meMail,
@@ -73,7 +73,9 @@ app.post('/processform', function(req,res){
     res.send('Email Sent')
   })
 })
-// Email Render Tests
+//======================================
+// Email Render Tests===================
+//======================================
 app.get('/test1', function(req, res){
   res.render('formMailer', {
     to: fit4meMail,
@@ -81,6 +83,7 @@ app.get('/test1', function(req, res){
     userEmail: 'something@somewhere.com',
     userName: 'Susan Somebody',
     userDate: "2016-07-18",
+    userEndDate: "2016-08-18",
     //-----------------Day 1-------------------
     w1d1UBC: checkOn('on') , w1d1LBC: checkOn('on'),
     w2d1UBC: checkOn('on'), w2d1LBC: checkOn('on'),
@@ -120,9 +123,6 @@ app.get('/test1', function(req, res){
   //   res.send(message)
    })
 })
-  
-
-
 
 //========================================
 // Send Email Protocol form Form PorgramA1
@@ -136,6 +136,7 @@ app.post('/processFormA1', function(req,res){
     userEmail: req.body.emailInput,
     userName: req.body.nameInput,
     userDate: req.body.startDateInput,
+    userEndDate: req.body.endDateInput,
     //-----------------Day 1-------------------
     w1d1UBC: checkOn(req.body.w1d1UBCheck), w1d1LBC: checkOn(req.body.w1d1LBCheck),
     w2d1UBC: checkOn(req.body.w2d1UBCheck), w2d1LBC: checkOn(req.body.w2d1LBCheck),
