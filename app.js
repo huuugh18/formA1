@@ -26,8 +26,6 @@ mailer.extend(app, {
   }
 })
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -84,6 +82,7 @@ app.get('/test1', function(req, res){
     userName: 'Susan Somebody',
     userDate: "2016-07-18",
     userEndDate: "2016-08-18",
+    userComment: "Had trouble following exercise 3 on day 5. Feel that I am ready to progress in my aerobic activity. This is a really long run on string to test wrapping of the text. Had trouble following exercise 3 on day 5. Feel that I am ready to progress in my aerobic activity. This is a really long run on string. ",
     //-----------------Day 1-------------------
     w1d1UBC: checkOn('on') , w1d1LBC: checkOn('on'),
     w2d1UBC: checkOn('on'), w2d1LBC: checkOn('on'),
@@ -111,16 +110,6 @@ app.get('/test1', function(req, res){
     w3d6AL: checkAerobic(60, undefined),
     w4d6AL: checkAerobic(undefined, 'hockey'),
     //-----------------Day 7 Rest--------------
-
-  //}
-  // ,function(err,message){
-  //   if (err) {
-  //     console.log(err)
-  //     res.send('error sending email')
-  //     return
-  //   }
-  //   res.header('Content-Type', 'text/plain')
-  //   res.send(message)
    })
 })
 
@@ -137,6 +126,7 @@ app.post('/processFormA1', function(req,res){
     userName: req.body.nameInput,
     userDate: req.body.startDateInput,
     userEndDate: req.body.endDateInput,
+    userComment: req.body.userComment,
     //-----------------Day 1-------------------
     w1d1UBC: checkOn(req.body.w1d1UBCheck), w1d1LBC: checkOn(req.body.w1d1LBCheck),
     w2d1UBC: checkOn(req.body.w2d1UBCheck), w2d1LBC: checkOn(req.body.w2d1LBCheck),
@@ -164,6 +154,7 @@ app.post('/processFormA1', function(req,res){
     w3d6AL: checkAerobic(req.body.w3d6AL, req.body.w3d6AE),
     w4d6AL: checkAerobic(req.body.w4d6AL, req.body.w4d6AE),
     //-----------------Day 7 Rest--------------
+    
 
   }, function(err){
     if (err) {
