@@ -40,6 +40,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.get('/log', function(req,res){
+  res.render('formlog',{})
+})
+
 // original test functions
 app.get('/sendmail', function(req,res){
   app.mailer.send('email', {
@@ -55,6 +60,7 @@ app.get('/sendmail', function(req,res){
     res.send('Email Sent')
   })
 })
+
 
 
 app.post('/processform', function(req,res){

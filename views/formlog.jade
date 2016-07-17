@@ -1,0 +1,464 @@
+html
+    head
+        meta(charset='utf-8')
+        meta(name="viewport",content="width=device-width, initial-scale=1")
+        link(rel='stylesheet',href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css')
+        link(rel='stylesheet',href='../stylesheets/formstyle.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js')
+    body
+        form(action='/processFormA1',method='post')
+            
+            .jumbotron
+                .container
+                    .row
+                        .col-md-6.col-md-offset-3
+                            center
+                            h1 Fit4Me Exercise Program Log
+                            h2 Personal Schedule Level A1
+                            br
+                            br
+                    .form-horizontal
+                        .form-group
+                            label.col-md-3.col-md-offset-3.text-right(for='nameInput') Full Name
+                            .col-md-3
+                                input#nameInput.form-control(type='text',name='nameInput',placeholder='nameInput')
+                        .form-group
+                            label.col-md-3.col-md-offset-3.text-right(for='emailInput') Email Address
+                            .col-md-3
+                                input#emailInput.form-control(type='email',name='emailInput',placeholder='emailInput')
+                        .form-group
+                            label.col-md-3.col-md-offset-3.text-right(for='startDateInput') Start Date
+                            .col-md-3
+                                input#startDateInput.form-control(type='date',name='startDateInput',placeholder='startDateInput')
+                        .form-group
+                            label.col-md-3.col-md-offset-3.text-right(for='endDateInput') Finish Date
+                            .col-md-3
+                                input#endDateInput.form-control(type='date',name='endDateInput',placeholder='endDateInput')
+            br
+            .row
+                .col-md-8.col-md-offset-2
+                        #week1.form-group.col-md-6.weekCol
+                            h3.weekHeader Week 1
+                            br
+                            .day1.row
+                                .col-md-3 
+                                    h4 Day 1
+                                .col-md-9
+                                    label(for='w1d1UBCheck') Upper Body Flexibility: 
+                                    input#w1d1UBCheck(name='w1d1UBCheck',type='checkbox')
+                                    br
+                                    label(for='w1d1LBCheck') Lower Body Strength: 
+                                    input#w1d1LBCheck(name='w1d1LBCheck',type='checkbox')
+                            .day2.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 2
+                                .col-md-9
+                                    label(for='w1d1DD') Aerobic Exercise:
+                                    br
+                                    select.form-control(name='w1d2AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-controlname='w1d2AE'
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                            .day3.row
+                                .col-md-3
+                                    h4 Day 3
+                                .col-md-9
+                                    label(for='w1d3CCheck') Core Abdominal Strength:
+                                    input#w1d3CCheck(name='w1d3CCheck',type='checkbox')
+                            .day4.row
+                                .col-md-3
+                                    h4 Day 4
+                                .col-md-9
+                                    label Rest Day
+                            .day5.row
+                                .col-md-3
+                                    h4 Day 5
+                                .col-md-9
+                                    label(for='w1d5UBCheck') Upper Body Strength:
+                                    input#w1d5UBCheck(name='w1d5UBCheck',type='checkbox')
+                                    br
+                                    label(for='w1d5LBCheck') Lower Body Flexibility:
+                            .day6.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 6
+                                .col-md-9
+                                    label(for='w1d6DD') Aerobic Exercise:
+                                    select.form-control(name='w1d6AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-control(name='w1d6AE')
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                                        option(value='Other') Other               
+                            .day7.row
+                                .col-md-3
+                                    h4 Day 7
+                                .col-md-9
+                                    label Rest Day
+                        #week2.form-group.col-md-6.col-md-offset-0.weekCol
+                            h3.weekHeader Week 2
+                            .day1.row
+                                .col-md-3
+                                    h4 Day 1
+                                .col-md-9
+                                    label(for='w2d1UBCheck') Upper Body Flexibility:
+                                    input#w2d1UBCheck(name='w2d1UBCheck',type='checkbox')
+                                    br
+                                    label(for='w2d1LBCheck') Lower Body Strength:
+                                    input#w2d1LBCheck(name='w2d1LBCheck',type='checkbox')
+                            .day2.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 2
+                                .col-md-9
+                                    label(for='w2d1DD') Aerobic Exercise:
+                                    select.form-control(name='w2d2AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-control(name='w2d2AE')
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                                        option(value='Other') Other               
+                            .day3.row
+                                .col-md-3
+                                    h4 Day 3
+                                .col-md-9
+                                    label(for='w2d3CCheck') Core Abdominal Strength:
+                                    input#w2d3CCheck(name='w2d3CCheck',type='checkbox')
+                            .day4.row
+                                .col-md-3
+                                    h4 Day 4
+                                .col-md-9'  
+                                    label Rest Day
+                            .day5.row
+                                .col-md-3
+                                    h4 Day 5
+                                .col-md-9
+                                    label(for='w2d5UBCheck') Upper Body Strength:
+                                    input#w2d5UBCheck(name='w2d5UBCheck',type='checkbox')
+                                    br
+                                    label(for='w2d5LBCheck') Lower Body Flexibility:
+                                    input#w2d5LBCheck(name='w2d5LBCheck',type='checkbox')
+                            .day6.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 6
+                                .col-md-9
+                                    label(for='w2d6DD') Aerobic Exercise:
+                                    select.form-control(name='w2d6AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-control(name='w2d6AE')
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                                        option(value='Other') Other               
+                            .day7.row
+                                .col-md-3
+                                    h4 Day 7
+                                .col-md-9
+                                    label Rest Day
+                        #week3.form-group.col-md-6.weekCol
+                            h3.weekHeader Week 3
+                            .day1.row
+                                .col-md-3
+                                    h4 Day 1
+                                .col-md-9
+                                    label(for='w3d1UBCheck') Upper Body Flexibility:
+                                    input#w3d1UBCheck(name='w3d1UBCheck',type='checkbox')
+                                    br
+                                    label(for='w3d1LBCheck') Lower Body Strength:
+                                    input#w3d1LBCheck(name='w3d1LBCheck',type='checkbox')
+                            .day2.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 2
+                                .col-md-9
+                                    label(for='w3d2DD') Aerobic Exercise:
+                                    select.form-control(name='w3d2AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-control(name='w3d2AE')
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                                        option(value='Other') Other                    
+                            .day3.row
+                                .col-md-3
+                                    h4 Day 3
+                                .col-md-9
+                                    label(for='w3d3CCheck') Core Abdominal Strength:
+                                    input#w3d3CCheck(name='w3d3CCheck',type='checkbox')
+                            .day4.row
+                                .col-md-3
+                                    h4 Day 4
+                                .col-md-9'  
+                                    label Rest Day
+                            .day5.row
+                                .col-md-3
+                                    h4 Day 5
+                                .col-md-9
+                                    label(for='w3d5UBCheck') Upper Body Strength:
+                                    input#w3d5UBCheck(name='w3d5UBCheck',type='checkbox')
+                                    br
+                                    label(for='w3d5LBCheck') Lower Body Flexibility:
+                                    input#w3d5LBCheck(name='w3d5LBCheck',type='checkbox')
+                            .day6.row.form-group.form-inline
+                                .col-md-3
+                                    h4 Day 6
+                                .col-md-9
+                                    label(for='w3d6DD') Aerobic Exercise:
+                                    select.form-control(name='w3d6AL')
+                                        option(disabled,selected) Level
+                                        option(value='5') 1 - 5 min
+                                        option(value='10') 2 - 10 min
+                                        option(value='15') 3 - 15 min
+                                        option(value='20') 4 - 20 min
+                                        option(value='30') 5 - 30 min
+                                        option(value='40') 6 - 40 min
+                                        option(value='50') 7 - 50 min
+                                        option(value='60') 8 - 60 min
+                                        option(value='75') 9 - 75 min
+                                        option(value='90') 10 - 90 min
+                                    select.form-control(name='w3d6AE')
+                                        option(disabled,selected) Activity
+                                        option(value='Treadmill Running') Treadmill Running
+                                        option(value='Outdoor Running') Outdoor Running
+                                        option(value='Treadmill Walking') Treadmill Walking
+                                        option(value='Outdoor Walking') Outdoor Walking
+                                        option(value='Outdoor Biking') Outdoor Biking
+                                        option(value='Stationary Biking') Stationary Biking
+                                        option(value='Stair Climber') Stair Climber
+                                        option(value='Elliptical Trainer') Elliptical Trainer
+                                        option(value='Swimming') Swimming
+                                        option(value='Water Jogging') Water Jogging
+                                        option(value='Aerobic Class') Aerobic Class
+                                        option(value='Water Aerobics') Water Aerobics
+                                        option(value='Skating') Skating
+                                        option(value='Yoga') Yoga
+                                        option(value='Other') Other                    
+                            .day7.row
+                                .col-md-3
+                                    h4 Day 7
+                                .col-md-9
+                                    label Rest Day
+                    #week4.form-group.col-md-6.col-md-offset-0.weekCol
+                        h3.weekHeader Week 4
+                        br
+                        .day1.row
+                            .col-md-3
+                                h4 Day 1
+                            .col-md-9
+                                label(for='w4d1UBCheck') Upper Body Flexibility:
+                                input#w4d1UBCheck(name='w4d1UBCheck',type='checkbox')
+                                br
+                                label(for='w4d1LBCheck') Lower Body Strength:
+                                input#w4d1LBCheck(name='w4d1LBCheck',type='checkbox')
+                        .day2.row.form-group.form-inline
+                            .col-md-3
+                                h4 Day 2
+                            .col-md-9
+                                label(for='w4d2DD') Aerobic Exercise:
+                                select.form-control(name='w4d2AL')
+                                    option(disabled,selected) Level
+                                    option(value='5') 1 - 5 min
+                                    option(value='10') 2 - 10 min
+                                    option(value='15') 3 - 15 min
+                                    option(value='20') 4 - 20 min
+                                    option(value='30') 5 - 30 min
+                                    option(value='40') 6 - 40 min
+                                    option(value='50') 7 - 50 min
+                                    option(value='60') 8 - 60 min
+                                    option(value='75') 9 - 75 min
+                                    option(value='90') 10 - 90 min
+                                select.form-control(name='w4d2AE')
+                                    option(disabled,selected) Activity
+                                    option(value='Treadmill Running') Treadmill Running
+                                    option(value='Outdoor Running') Outdoor Running
+                                    option(value='Treadmill Walking') Treadmill Walking
+                                    option(value='Outdoor Walking') Outdoor Walking
+                                    option(value='Outdoor Biking') Outdoor Biking
+                                    option(value='Stationary Biking') Stationary Biking
+                                    option(value='Stair Climber') Stair Climber
+                                    option(value='Elliptical Trainer') Elliptical Trainer
+                                    option(value='Swimming') Swimming
+                                    option(value='Water Jogging') Water Jogging
+                                    option(value='Aerobic Class') Aerobic Class
+                                    option(value='Water Aerobics') Water Aerobics
+                                    option(value='Skating') Skating
+                                    option(value='Yoga') Yoga
+                                    option(value='Other') Other                    
+                        .day3.row
+                            .col-md-3
+                                h4 Day 3
+                            .col-md-9
+                                label(for='w4d3CCheck') Core Abdominal Strength:
+                                input#w4d3CCheck(name='d3CCheck',type='checkbox')
+                        .day4.row
+                            .col-md-3
+                                h4 Day 4
+                            .col-md-9'  
+                                label Rest Day
+                        .day5.row
+                            .col-md-3
+                                h4 Day 5
+                            .col-md-9
+                                label(for='w4d5UBCheck') Upper Body Strength:
+                                input#w4d5UBCheck(name='w4d5UBCheck',type='checkbox')
+                                br
+                                label(for='w4d5LBCheck') Lower Body Flexibility:
+                                input#w4d5LBCheck(name='w4d5LBCheck',type='checkbox')
+                        .day6.row.form-group.form-inline
+                            .col-md-3
+                                h4 Day 6
+                            .col-md-9
+                                label(for='w4d6DD') Aerobic Exercise:
+                                select.form-control(name='w4d6AL')
+                                    option(disabled,selected) Level
+                                    option(value='5') 1 - 5 min
+                                    option(value='10') 2 - 10 min
+                                    option(value='15') 3 - 15 min
+                                    option(value='20') 4 - 20 min
+                                    option(value='30') 5 - 30 min
+                                    option(value='40') 6 - 40 min
+                                    option(value='50') 7 - 50 min
+                                    option(value='60') 8 - 60 min
+                                    option(value='75') 9 - 75 min
+                                    option(value='90') 10 - 90 min
+                                select.form-control(name='w4d6AE')
+                                    option(disabled,selected) Activity
+                                    option(value='Treadmill Running') Treadmill Running
+                                    option(value='Outdoor Running') Outdoor Running
+                                    option(value='Treadmill Walking') Treadmill Walking
+                                    option(value='Outdoor Walking') Outdoor Walking
+                                    option(value='Outdoor Biking') Outdoor Biking
+                                    option(value='Stationary Biking') Stationary Biking
+                                    option(value='Stair Climber') Stair Climber
+                                    option(value='Elliptical Trainer') Elliptical Trainer
+                                    option(value='Swimming') Swimming
+                                    option(value='Water Jogging') Water Jogging
+                                    option(value='Aerobic Class') Aerobic Class
+                                    option(value='Water Aerobics') Water Aerobics
+                                    option(value='Skating') Skating
+                                    option(value='Yoga') Yoga
+                                    option(value='Other') Other                    
+                        .day7.row
+                            .col-md-3
+                                h4 Day 7
+                            .col-md-9
+                                label Rest Day
+            .row
+                .form-group.col-md-8.col-md-offset-2
+                    label(for='userComment') 
+                        strong Comments and Questions:
+                    textarea#userComment.form-control(rows='5',name='userComment',placeholder='Insert questions and comments here...')
+                .col-md-8.col-md-offset-2
+                    input#completeA1.btn.btn-successs.btn-lg.btn-block(type='submit',value='Submit Program')
