@@ -12,18 +12,14 @@ html
                 .row
                     .col-md-6.col-md-offset-3
                         center
-                            h1 Fit4Me Program Database
-        .container
-            a#addProgram.btn.btn-success.btn-lg.btn-block(href='/programs/new',role='button') Add Program
-            hr
-            each program in programs
-                h5 Program Name: 
-                    strong #{program.name}
-                h5 Program ID: 
-                    strong #{program.id}
-                div.btn-group 
-                    a.btn.btn-info(href='/programs/#{program.id}') Edit
-                    a.btn.btn-danger(href='/removeProgram/#{program.id}') Remove
-                hr
-                
+                            h1 Remove Program
+                            h4 Program: 
+                                i #{name}
+                            h4 ID: 
+                                i #{id}
+        form.container(action='/deleteProgram/#{id}',method='post')
+            .row.col-xs-8.col-xs-offset-2
+                h3 Remove #{name} from database
+                .form-group
+                    input.form-control.btn.btn-lg.btn-danger(type='submit',value='Delete Program!')
             

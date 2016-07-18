@@ -29,8 +29,8 @@ var app = express();
   })
 
 //-------------- view engine setup------------------
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -46,6 +46,10 @@ app.use('/users', users);
 function getFormFileName(programID){
   return 'form'+programID
 }
+
+//============================================
+// List All Programs==========================
+//============================================
 app.get('/programs', function(req,res){
   fs.readFile('./data.json', 'utf8', function (err,data){
     var list = JSON.parse(data)
@@ -53,8 +57,33 @@ app.get('/programs', function(req,res){
     res.render('programlist',{programs:list})
   })
 })
+//===========================================
+// Create New Program Form===================
+//===========================================
 app.get('/programs/new', function (req,res){
   res.render('newprogram')
+})
+app.post('/processNewProgram', function(req,res){
+  var newProg = {id:req.body.programID,name:req.body.programName}
+  fs.readFile('./data.json', 'utf8', function (err,data){
+    var allPrograms = JSON.parse(data)
+    allPrograms.push(newProg)
+    fs.writeFile('./data.json', JSON.stringify(allPrograms), function(err) {
+      res.redirect('/programs')
+    })
+  })
+})
+//===========================================
+// Edit Existing Program Form================
+//===========================================
+app.get('/programs/:programID', function (req,res){
+  fs.readFile('./data.json', 'utf8', function (err,data){
+    var allPrograms = JSON.parse(data)
+    var program = allPrograms.find(function(p){
+      return p.id===req.params.programID
+    })
+    res.render('editProgram',program)
+  })
 })
 app.post('/updateProgram/:programID', function(req,res){
   fs.readFile('./data.json', 'utf8', function (err,data){
@@ -66,56 +95,102 @@ app.post('/updateProgram/:programID', function(req,res){
     fs.writeFile('./data.json', JSON.stringify(allPrograms), function(err) {
       res.redirect('/programs')
     })
-    
   })
 })
-app.get('/programs/:programID', function (req,res){
+//===========================================
+// Remove Existing Program Form==============
+//===========================================
+
+app.get('/removeProgram/:programID',function(req,res){
+  fs.readFile('./data.json', 'utf8', function(err,data){
+    var allPrograms = JSON.parse(data)
+    var program = allPrograms.find(function(p){
+      return p.id===req.params.programID
+    })
+    res.render('removeProgram',program)
+  })
+})
+app.post('/deleteProgram/:programID', function(req,res){
   fs.readFile('./data.json', 'utf8', function (err,data){
     var allPrograms = JSON.parse(data)
     var program = allPrograms.find(function(p){
       return p.id===req.params.programID
     })
-    res.render('editProgram',program)
-  })
-})
-app.post('/processNewProgram', function(req,res){
-  var newProg = {id:req.body.programID,name:req.body.programName}
-  fs.readFile('./data.json', 'utf8', function (err,data){
-    var allPrograms = JSON.parse(data)
-    allPrograms.push(newProg)
+    allPrograms = allPrograms.filter(function(obj) {
+      return program.id.indexOf(obj.id) === -1
+    })
     fs.writeFile('./data.json', JSON.stringify(allPrograms), function(err) {
       res.redirect('/programs')
-    })
-    
+    })    
+
   })
 })
   
 
+
+//=========================================
+// User Program Log Form to Submit=========
+//=========================================
 app.get('/log/:programID', function(req,res){
   console.log(req.params.programID)
   var form='form'+req.params.programID
   res.render(form,{})
 })
-
-// original test functions
-app.get('/sendmail', function(req,res){
-  app.mailer.send('email', {
+//==========================================
+// Send Email Protocol form PorgramA1=======
+//==========================================
+app.post('/processFormA1', function(req,res){
+  console.log('ProcessFormA1 has Run')
+  console.log(req.body)
+  app.mailer.send('formMailer', {
     to: fit4meMail,
-    subject: 'Test Mailer',
+    subject: 'testformA1',
+    userEmail: req.body.emailInput,
+    userName: req.body.nameInput,
+    userDate: req.body.startDateInput,
+    userEndDate: req.body.endDateInput,
+    userComment: req.body.userComment,
+    //-----------------Day 1-------------------
+    w1d1UBC: checkOn(req.body.w1d1UBCheck), w1d1LBC: checkOn(req.body.w1d1LBCheck),
+    w2d1UBC: checkOn(req.body.w2d1UBCheck), w2d1LBC: checkOn(req.body.w2d1LBCheck),
+    w3d1UBC: checkOn(req.body.w3d1UBCheck), w3d1LBC: checkOn(req.body.w3d1LBCheck),
+    w4d1UBC: checkOn(req.body.w4d1UBCheck), w4d1LBC: checkOn(req.body.w4d1LBCheck),
+    //-----------------Day 2-------------------
+    w1d2AL: checkAerobic(req.body.w1d2AL, req.body.w1d2AE),
+    w2d2AL: checkAerobic(req.body.w2d2AL, req.body.w2d2AE),
+    w3d2AL: checkAerobic(req.body.w3d2AL, req.body.w3d2AE),
+    w4d2AL: checkAerobic(req.body.w4d2AL, req.body.w4d2AE),
+    //-----------------Day 3-------------------
+    w1d3Ab: checkOn(req.body.w1d3CCheck),
+    w2d3Ab: checkOn(req.body.w2d3CCheck), 
+    w3d3Ab: checkOn(req.body.w3d3CCheck), 
+    w4d3Ab: checkOn(req.body.w4d3CCheck),  
+    //-----------------Day 4 Rest--------------
+    //-----------------Day 5-------------------
+    w1d5UBC: checkOn(req.body.w1d5UBCheck), w1d5LBC: checkOn(req.body.w1d5LBCheck),
+    w2d5UBC: checkOn(req.body.w2d5UBCheck), w2d5LBC: checkOn(req.body.w2d5LBCheck),
+    w3d5UBC: checkOn(req.body.w3d5UBCheck), w3d5LBC: checkOn(req.body.w3d5LBCheck),
+    w4d5UBC: checkOn(req.body.w4d5UBCheck), w4d5LBC: checkOn(req.body.w4d5LBCheck),
+    //-----------------Day 6-------------------
+    w1d6AL: checkAerobic(req.body.w1d6AL, req.body.w1d6AE),
+    w2d6AL: checkAerobic(req.body.w2d6AL, req.body.w2d6AE),
+    w3d6AL: checkAerobic(req.body.w3d6AL, req.body.w3d6AE),
+    w4d6AL: checkAerobic(req.body.w4d6AL, req.body.w4d6AE),
+    //-----------------Day 7 Rest--------------
+    
 
-  }, function (err){
+  }, function(err){
     if (err) {
       console.log(err)
       res.send('error sending email')
-      return;
+      return
     }
     res.send('Email Sent')
   })
 })
-
-//======================================
-// Email Render Tests===================
-//======================================
+//=========================================
+// Email Render Tests======================
+//=========================================
 app.get('/test1', function(req, res){
   res.render('formMailer', {
     to: fit4meMail,
@@ -169,58 +244,6 @@ app.post('/processform', function(req,res){
   })
 })
 
-//========================================
-// Send Email Protocol form Form PorgramA1
-//========================================
-app.post('/processFormA1', function(req,res){
-  console.log('ProcessFormA1 has Run')
-  console.log(req.body)
-  app.mailer.send('formMailer', {
-    to: fit4meMail,
-    subject: 'testformA1',
-    userEmail: req.body.emailInput,
-    userName: req.body.nameInput,
-    userDate: req.body.startDateInput,
-    userEndDate: req.body.endDateInput,
-    userComment: req.body.userComment,
-    //-----------------Day 1-------------------
-    w1d1UBC: checkOn(req.body.w1d1UBCheck), w1d1LBC: checkOn(req.body.w1d1LBCheck),
-    w2d1UBC: checkOn(req.body.w2d1UBCheck), w2d1LBC: checkOn(req.body.w2d1LBCheck),
-    w3d1UBC: checkOn(req.body.w3d1UBCheck), w3d1LBC: checkOn(req.body.w3d1LBCheck),
-    w4d1UBC: checkOn(req.body.w4d1UBCheck), w4d1LBC: checkOn(req.body.w4d1LBCheck),
-    //-----------------Day 2-------------------
-    w1d2AL: checkAerobic(req.body.w1d2AL, req.body.w1d2AE),
-    w2d2AL: checkAerobic(req.body.w2d2AL, req.body.w2d2AE),
-    w3d2AL: checkAerobic(req.body.w3d2AL, req.body.w3d2AE),
-    w4d2AL: checkAerobic(req.body.w4d2AL, req.body.w4d2AE),
-    //-----------------Day 3-------------------
-    w1d3Ab: checkOn(req.body.w1d3CCheck),
-    w2d3Ab: checkOn(req.body.w2d3CCheck), 
-    w3d3Ab: checkOn(req.body.w3d3CCheck), 
-    w4d3Ab: checkOn(req.body.w4d3CCheck),  
-    //-----------------Day 4 Rest--------------
-    //-----------------Day 5-------------------
-    w1d5UBC: checkOn(req.body.w1d5UBCheck), w1d5LBC: checkOn(req.body.w1d5LBCheck),
-    w2d5UBC: checkOn(req.body.w2d5UBCheck), w2d5LBC: checkOn(req.body.w2d5LBCheck),
-    w3d5UBC: checkOn(req.body.w3d5UBCheck), w3d5LBC: checkOn(req.body.w3d5LBCheck),
-    w4d5UBC: checkOn(req.body.w4d5UBCheck), w4d5LBC: checkOn(req.body.w4d5LBCheck),
-    //-----------------Day 6-------------------
-    w1d6AL: checkAerobic(req.body.w1d6AL, req.body.w1d6AE),
-    w2d6AL: checkAerobic(req.body.w2d6AL, req.body.w2d6AE),
-    w3d6AL: checkAerobic(req.body.w3d6AL, req.body.w3d6AE),
-    w4d6AL: checkAerobic(req.body.w4d6AL, req.body.w4d6AE),
-    //-----------------Day 7 Rest--------------
-    
-
-  }, function(err){
-    if (err) {
-      console.log(err)
-      res.send('error sending email')
-      return
-    }
-    res.send('Email Sent')
-  })
-})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -256,6 +279,8 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+
+// Check Log Form values ===================
 function checkOn(checkValue){
   if (checkValue==='on'){
     return 'Completed'
