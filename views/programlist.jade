@@ -1,0 +1,11 @@
+html
+    head
+    body
+        each program in programs
+            div #{program.id}
+            div #{program.name}
+            div 
+                a(href='/programs/#{program.id}') edit
+            hr
+        a(href='/programs/new') add
+            
