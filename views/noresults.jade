@@ -10,9 +10,37 @@ html
         .jumbotron
             .container
                 .row
-                    .col-md-6.col-md-offset-3
+                    .col-md-4.col-md-offset-4
                         center
-                            h1 No Results
-        form.container
-            .row.col-xs-8.col-xs-offset-2
-                  a.form-control.btn.btn-success(href='/programs',type='button',value='Return to Programs') Return to Programs
+                            h1 Fit4Me Program Database
+        .container.row.col-md-6.col-md-offset-3
+            form.row(action='/searchProgramName', method='post')
+                .col-md-6
+                    input#searchProgName.form-control(type='text',placeholder='Search Programs by Name',name='searchProgName')
+                .col-md-6
+                    input#searchProgNameInput.form-control.btn.btn-primary(type='submit',value='Search')
+            form.row(action='/searchProgramID', method='post')
+                .col-md-6
+                    input#searchProgID.form-control(type='text',placeholder='Search Programs by ID',name='searchProgID')
+                .col-md-6
+                    input#searchProgIDInput.form-control.btn.btn-primary(type='submit',value='Search')
+            .row
+                .col-md-12
+                    input.btn.btn-warning.disabled.btn-block(type='button',value='No Results Found')
+            .row
+                .col-md-12
+                    br
+                    a#addProgram.btn.btn-success.btn-block(href='/programs/new',role='button') Add Program
+                    br
+        .container.row.col-md-6.col-md-offset-3
+            each program in programs
+                h5 Program Name: 
+                    strong #{program.name}
+                h5 Program ID: 
+                    strong #{program.id}
+                div.btn-group 
+                    a.btn.btn-info(href='/programs/#{program.id}') Edit
+                    a.btn.btn-danger(href='/removeProgram/#{program.id}') Remove
+                hr
+                
+            

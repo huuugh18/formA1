@@ -84,7 +84,11 @@ app.post('/processNewProgram', function(req,res){
 })
 // No results
 app.get('/programs/notfound', function(req,res){
-  res.render('noresults')
+  fs.readFile('./data.json', 'utf8', function (err,data){
+    var list = JSON.parse(data)
+    list.sort(compareProgNames)
+    res.render('noresults',{programs:list})
+  })
 })
 //===========================================
 // Edit Existing Program Form================
