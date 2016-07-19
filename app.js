@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-
+var $ = require('jquery')
 var routes = require('./routes/index');
 var users = require('./routes/users');
 const fit4meMail = 'fit4metest@gmail.com'
@@ -53,10 +53,19 @@ function getFormFileName(programID){
 app.get('/programs', function(req,res){
   fs.readFile('./data.json', 'utf8', function (err,data){
     var list = JSON.parse(data)
+    list.sort(compareProgNames)
     console.log(list)
     res.render('programlist',{programs:list})
   })
 })
+// -- sort programs
+function compareProgNames(a,b){
+    a = a.name.toUpperCase()
+    b = b.name.toUpperCase()
+    if (a < b) return -1
+    if (a > b) return 1
+    return 0
+}        
 //===========================================
 // Create New Program Form===================
 //===========================================
@@ -72,6 +81,10 @@ app.post('/processNewProgram', function(req,res){
       res.redirect('/programs')
     })
   })
+})
+// No results
+app.get('/programs/notfound', function(req,res){
+  res.render('noresults')
 })
 //===========================================
 // Edit Existing Program Form================
@@ -98,9 +111,32 @@ app.post('/updateProgram/:programID', function(req,res){
   })
 })
 //===========================================
+// Search Existing Program - Redirect to Edit
+//===========================================
+app.post('/searchProgramName', function(req,res){
+  fs.readFile('./data.json','utf8',function(err,data){
+    var list = JSON.parse(data)
+    var searchParam = req.body.searchProgName 
+    var foundProg = searchProgNames(list,searchParam)
+    var checkFP = !!foundProg
+    if(checkFP) {res.redirect('/programs/'+foundProg.id)}
+    else{res.redirect('/programs/notfound')}
+  })
+})
+app.post('/searchProgramID', function(req,res){
+  fs.readFile('./data.json','utf8',function(err,data){
+    var list = JSON.parse(data)
+    var searchParam = req.body.searchProgID
+    var foundProg = searchProgID(list,searchParam)
+    var checkFP = !!foundProg
+    if (checkFP) {res.redirect('/programs/'+foundProg.id)}
+    else{res.redirect('/programs/notfound')}
+  })
+})
+
+//===========================================
 // Remove Existing Program Form==============
 //===========================================
-
 app.get('/removeProgram/:programID',function(req,res){
   fs.readFile('./data.json', 'utf8', function(err,data){
     var allPrograms = JSON.parse(data)
@@ -126,8 +162,6 @@ app.post('/deleteProgram/:programID', function(req,res){
   })
 })
   
-
-
 //=========================================
 // User Program Log Form to Submit=========
 //=========================================
@@ -287,7 +321,6 @@ function checkOn(checkValue){
   }
   return 'Incomplete'
 }
-
 function checkAerobic(time, activity){
   if(time >=0 && activity !== undefined) {
     return time + ' min '+ activity
@@ -300,4 +333,16 @@ function checkAerobic(time, activity){
   }
   return 'Incomplete'
 }
-
+// Search Programs =========================
+function searchProgNames(list,searchName){
+  function findProg(program){
+    return program.name === searchName
+  }
+  return list.find(findProg)
+}
+function searchProgID(list,searchID){
+  function findProg(program){
+    return program.id === searchID
+  }
+  return list.find(findProg)
+}
