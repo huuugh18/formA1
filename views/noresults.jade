@@ -34,9 +34,9 @@ html
                     br
         .container.row.col-md-6.col-md-offset-3
             each program in programs
-                h5 Program Name: 
+                h5 Name: 
                     strong #{program.name}
-                h5 Program ID: 
+                h5 ID: 
                     strong #{program.id}
                 div.btn-group 
                     a.btn.btn-info(href='/programs/#{program.id}') Edit
