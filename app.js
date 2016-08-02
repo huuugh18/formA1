@@ -1,18 +1,18 @@
 //-----------------NODES-------------------------
-var express = require('express');
-var mailer = require('express-mailer')
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var $ = require('jquery')
-var routes = require('./routes/index');
-var users = require('./routes/users');
-const fit4meMail = 'fit4metest@gmail.com'
-const fit4mePW = process.env.password
-var app = express();
+  var express = require('express');
+  var mailer = require('express-mailer')
+  var path = require('path');
+  var favicon = require('serve-favicon');
+  var logger = require('morgan');
+  var cookieParser = require('cookie-parser');
+  var bodyParser = require('body-parser');
+  var fs = require('fs');
+  var $ = require('jquery')
+  var routes = require('./routes/index');
+  var users = require('./routes/users');
+  const fit4meMail = 'fit4metest@gmail.com'
+  const fit4mePW = process.env.password
+  var app = express();
 
 
 //------------ express mailer setup---------------------
@@ -82,7 +82,7 @@ app.post('/processNewProgram', function(req,res){
     })
   })
 })
-// No results
+// No results ===============================
 app.get('/programs/notfound', function(req,res){
   fs.readFile('./data.json', 'utf8', function (err,data){
     var list = JSON.parse(data)
@@ -179,7 +179,6 @@ app.get('/log/:programID', function(req,res){
 //==========================================
 app.post('/processFormA1', function(req,res){
   console.log('ProcessFormA1 has Run')
-  console.log(req.body)
   app.mailer.send('formMailer', {
     to: fit4meMail,
     subject: 'testformA1',
